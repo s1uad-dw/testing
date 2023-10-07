@@ -1,13 +1,15 @@
 import utils.StringGenerator;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
         ArrayList<User> users = new ArrayList<User>();
         for (int i=0; i<10; i++){
-            String name = new StringGenerator().generateRandomString(5);
+            String name = new StringGenerator().generateRandomLetterString(5);
+            int age = new Random().nextInt(100);
             User user = (Math.random()>0.5) ?
-                    new User(name, 100, Gender.Wooman) : new User(name, 100, Gender.Man);
+                    new User(name, age, Gender.Wooman) : new User(name, age, Gender.Man);
             users.add(user);
         }
 
@@ -21,13 +23,13 @@ public class Main {
             }
         }
 
-        System.out.println("users:");
+        System.out.println("\nusers:");
         printList(users);
 
-        System.out.println("man:");
+        System.out.println("\nman:");
         printList(man);
 
-        System.out.println("wooman:");
+        System.out.println("\nwooman:");
         printList(wooman);
 
     }
