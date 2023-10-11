@@ -1,10 +1,11 @@
 import utils.StringGenerator;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<User> users = new ArrayList<User>();
+        List<User> users = new ArrayList<>();
         for (int i=0; i<10; i++){
             String name = new StringGenerator().generateRandomLetterString(5);
             int age = new Random().nextInt(100);
@@ -13,8 +14,8 @@ public class Main {
             users.add(user);
         }
 
-        ArrayList<User> man = new ArrayList<User>();
-        ArrayList<User> wooman = new ArrayList<User>();
+        List<User> man = new ArrayList<>();
+        List<User> wooman = new ArrayList<>();
         for (User user : users){
             if (user.gender == Gender.Man){
                 man.add(user);
@@ -26,6 +27,9 @@ public class Main {
         System.out.println("\nusers:");
         printList(users);
 
+        System.out.println("\nusers sotet by streamAPI:");
+        printList(new User().sortByGender(users, Gender.Wooman));
+
         System.out.println("\nman:");
         printList(man);
 
@@ -33,7 +37,7 @@ public class Main {
         printList(wooman);
 
     }
-    public static <T> void  printList(ArrayList<T> list){
+    public static <T> void  printList(List<T> list){
         for (T item : list){
             System.out.println(item);
         }
