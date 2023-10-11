@@ -6,21 +6,25 @@ public class User {
     public String name;
     public int age;
     public Gender gender;
+    public String email;
+    public String phone;
     User(){
         name = "";
         age = 0;
     }
-    User(String n, int a, Gender g){
+    User(String n, int a, Gender g, String e, String p){
         name = n;
         age = a;
         gender = g;
+        email = e;
+        phone = p;
     }
     public List<User> sortByGender(List<User> list, Gender gender){
         return list.stream().filter(user -> user.gender == gender).collect(Collectors.toList());
     }
     @Override
     public String toString() {
-        return String.format("Name: %s Age: %d Gender: %s", name, age, gender);
+        return String.format("Name: %s, Age: %d, Gender: %s, Email: %s, Phone %s", name, age, gender, email, phone);
     }
 }
 

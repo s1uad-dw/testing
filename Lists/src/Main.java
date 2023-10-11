@@ -9,8 +9,10 @@ public class Main {
         for (int i=0; i<10; i++){
             String name = new StringGenerator().generateRandomLetterString(5);
             int age = new Random().nextInt(100);
+            String email = new StringGenerator().generateRandomEmailString(new Random().nextInt(15));
+            String phone = new StringGenerator().generateRandomPhoneNumberString();
             User user = (Math.random()>0.5) ?
-                    new User(name, age, Gender.Wooman) : new User(name, age, Gender.Man);
+                    new User(name, age, Gender.Wooman, email, phone) : new User(name, age, Gender.Man, email, phone);
             users.add(user);
         }
 
