@@ -1,3 +1,4 @@
+import org.jetbrains.annotations.NotNull;
 import utils.StringGenerator;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +40,7 @@ public class Main {
         printList(wooman);
 
     }
-    public static <T> void  printList(List<T> list){
+    public static <T> void  printList(@NotNull List<T> list){
         for (T item : list){
             System.out.println(item);
         }
