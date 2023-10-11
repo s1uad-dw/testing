@@ -1,11 +1,12 @@
-import java.util.ArrayList;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class User {
     public String name;
     public int age;
-    public Gender gender;
+    Gender gender;
     public String email;
     public String phone;
     User(){
@@ -19,7 +20,7 @@ public class User {
         email = e;
         phone = p;
     }
-    public List<User> sortByGender(List<User> list, Gender gender){
+    public List<User> sortByGender(@NotNull List<User> list, @NotNull Gender gender){
         return list.stream().filter(user -> user.gender == gender).collect(Collectors.toList());
     }
     @Override
